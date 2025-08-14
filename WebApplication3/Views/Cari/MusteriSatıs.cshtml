@@ -1,0 +1,40 @@
+﻿@using WebApplication3.Models.Sınıflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "MusteriSatıs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>MusteriSatıs</h2>
+
+<ol class="breadcrumb" mb-4>
+    <li class="breadcrumb-item-active">Cari Adı: @ViewBag.cari </li>
+</ol>
+
+<table class="table table-condensed">
+    <tr>
+        <th>Satış ID </th>
+        <th>Ürün </th>
+        <th>Personel </th>
+        <th>Fiyat </th>
+        <th>Adet </th>
+        <th>Toplam </th>
+        <th>Tarih </th>
+    </tr>
+    <tr>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@x.SatisID </td>
+            <td>@x.product.ÜrünAd</td>
+            <td>@x.personal.PersonalAd @x.personal.PersonalSoyad</td>
+            <td>@x.Fiyat</td>
+            <td>@x.Adet</td>
+            <td>@x.ToplamTutar</td>
+            <td>@x.Tarih</td>
+            <td><a href="#" class="btn btn-default" style="background-color:pink">Yazdır</a></td>
+
+        </tr>
+    }
+
+    </table>

@@ -1,0 +1,41 @@
+﻿@using WebApplication3.Models.Sınıflar
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("Index", "Kargo", FormMethod.Get))
+{
+    <div class="d-flex justify-content-end mb-3">
+        <div class="input-group" style="max-width: 400px;">
+            @Html.TextBox("p", Request.QueryString["p"], new { @class = "form-control", placeholder = "Kargo Takip Numarasını Yaz" })
+            <button type="submit" class="btn btn-primary">Ara</button>
+        </div>
+    </div>
+}
+<table class=" table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Tarih</th>
+        <th>Kargo Takip Kodu</th>
+        <th>Detaylar</th>
+        <th>QR</th>
+    </tr>
+
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Personel</td>
+            <td>@k.Alici</td>
+            <td>@k.TakipKodu</td>
+            <td>@Convert.ToDateTime(k.Tarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Kargo/KargoTakip/@k.TakipKodu" class="btn btn-outline-danger">Detaylar</a></td>
+            <td><a href="/Kargo/Karekod/@k.KargoDetayid" class="btn btn-outline-primary">QR</a></td>
+        </tr>
+    }
+</table>
+<a href="/Kargo/YenikargoEkle" class="btn btn-info">Yeni Kargo Girişi</a>
+

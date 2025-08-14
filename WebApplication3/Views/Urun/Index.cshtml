@@ -1,0 +1,60 @@
+﻿@using WebApplication3.Models.Sınıflar;
+@using WebApplication3.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <div class="d-flex justify-content-end mb-3">
+        <div class="input-group" style="max-width: 400px;">
+            @Html.TextBox("p", Request.QueryString["p"], new { @class = "form-control", placeholder = "Ürün adını yaz..." })
+            <button type="submit" class="btn btn-primary">Ara</button>
+        </div>
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün</th>
+        <th>Marka</th>
+        <th>Stok</th>
+        <th>Alış Fiyat</th>
+        <th>Satış Fiyat</th>
+        <th>Kategori</th>
+        <th>Ürün Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.ÜrünAd</td>
+            <td>@u.Marka</td>
+            <td>@u.Stok</td>
+            <td>@u.AlisFiyat ₺</td>
+            <td>@u.SatisFiyat ₺</td>
+            <td>@u.Category.KategoriAd</td>
+            <td>
+                <a href="/Urun/UrunSil/@u.ÜrünID" class="btn btn-outline-warning">SİL</a>
+            </td>
+            <td>
+                <a href="/Urun/UrunGetir/@u.ÜrünID" class="btn btn-outline-success">Güncelle </a>
+            </td>
+            <td>
+                <a href="/Urun/SatisYap/@u.ÜrünID" class="btn btn-outline-primary">Satış Yap </a>
+            </td>
+
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<a href="/Urun/YeniUrun/" class="btn btn-info">Yeni Ürün</a>

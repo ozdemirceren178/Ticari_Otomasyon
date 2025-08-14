@@ -1,0 +1,27 @@
+﻿@model WebApplication3.Models.Sınıflar.KargoDetay
+@{
+    ViewBag.Title = "YenikargoEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Kargo Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Takip Kodu")
+    <input type="text" value="@ViewBag.takipkod" class="form-control" readonly name="TakipKodu" />
+    <br />
+    @Html.LabelFor(x => x.Personel)
+    @Html.TextBoxFor(x => x.Personel, new { @class = "form-control" })
+    <br />
+    @Html.Label("Alıcı")
+    @Html.TextBoxFor(x => x.Alici, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    <input class="form-control" type="date" name="Tarih" />
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
