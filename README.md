@@ -26,7 +26,9 @@ The application follows the **Model-View-Controller (MVC)** architectural patter
 
 ## 🗄️ Database
 The project uses Microsoft SQL Server for persistent data storage and **Entity Framework** for database operations.
-
+<img width="600"  alt="1756038755777" src="https://github.com/user-attachments/assets/e6c4f347-cb87-4850-b368-09959d5127fd" />
+<img width="600"  alt="1756038755563" src="https://github.com/user-attachments/assets/70f3832c-cdbd-41af-b593-5bb517bb490f" />
+<img width="600"  alt="1756038755754" src="https://github.com/user-attachments/assets/edec895c-50a5-4a00-a2f4-7f17b389a112" />
 ## ⚙️ Setup & Installation
 1. Clone the repository:
 ```bash
