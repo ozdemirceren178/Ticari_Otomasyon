@@ -29,6 +29,8 @@ The project uses Microsoft SQL Server for persistent data storage and **Entity F
 <img width="600"  alt="1756038755777" src="https://github.com/user-attachments/assets/e6c4f347-cb87-4850-b368-09959d5127fd" />
 <img width="600"  alt="1756038755563" src="https://github.com/user-attachments/assets/70f3832c-cdbd-41af-b593-5bb517bb490f" />
 <img width="600"  alt="1756038755754" src="https://github.com/user-attachments/assets/edec895c-50a5-4a00-a2f4-7f17b389a112" />
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/e037d019-84ac-4478-b90c-1d9eb72cb609" />
+
 ## ⚙️ Setup & Installation
 1. Clone the repository:
 ```bash
